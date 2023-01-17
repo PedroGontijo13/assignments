@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <h1><%= title %></h1>
+
+    <form style="width: 100%;" action="/" method="POST">
+      <div class="form-control">
+        <label for="title">Title</label>
+        <input type="text" name="title" />
+      </div>
+
+      <div class="form-control">
+        <label for="id">id</label>
+        <input type="text" name="id" />
+      </div>
+
+      <div class="form-control">
+        <label for="description">Description</label>
+        <textarea name="description" cols="30" rows="10"> </textarea>
+      </div>
+
+      <div class="form-control completed">
+        <label for="completed">Completed</label>
+        <input type="checkbox" name="completed" />
+      </div>
+
+      <button type="submit">Create</button>
+    </form>
+
+    <ul>
+      <% for( let index = 0; index < todos.length; index++ ) { %>
+      <li>
+        <div class="todo-card">
+          <input type="checkbox" name="completed" <%= todos[index].completed ?
+          "checked" : "" %> />
+          <label for=""><%= todos[index].title %></label>
+          <div class="todo-description">
+            <p><%= todos[index].description %></p>
+          </div>
+          <form action="/<%= todos[index].id %>" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>

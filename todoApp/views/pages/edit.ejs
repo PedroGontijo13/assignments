@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <h3>Edit</h3>
+    <h3><%= title %></h3>
+    <ul>
+      <li>
+        <div class="todo-card">
+          <input type="checkbox" name="completed" <%= todos.completed ?
+          "checked" : "" %> />
+          <label for=""><%= todos.title %></label>
+          <div class="todo-description">
+            <p><%= todos.description %></p>
+          </div>
+          <form action="/<%= todos.id %>" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      </li>
+    </ul>
+
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>

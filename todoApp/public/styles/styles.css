@@ -22,9 +22,6 @@ li{
     padding: 24px;
     background-color: #272B33;
     color: white;
-    /* grid */
-    display: grid;
-    grid-template-columns: 20px 1fr 120px;
     gap: 24px;
     border-radius: 4px;
 }

@@ -19,12 +19,12 @@
                 <div class="todo-card">
                     <input type="checkbox" name="completed" <%= todos[index].completed ? "checked" : "" %> />
                     <label for=""><%= todos[index].title %></label>
+                    <div class="todo-description">
+                        <p><%= todos[index].description %></p>
+                    </div>
                     <form action="/<%= todos[index].id %>" method="POST">
                         <button type="submit">Delete</button>
                     </form>
-                </div>
-                <div class="todo-description">
-                    <p><%= todos[index].description %></p>
                 </div>
             </li>
         <% } %>
