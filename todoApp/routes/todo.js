@@ -86,17 +86,12 @@ router.post("/edit/:id", (req, res) => {
         let todos = JSON.parse(data)
 
         //Find the element
-        let todo = todos.find(todo => todo.id == req.body.id);
+        let todo = todos.find(todo => todo.id == req.params.id);
 
         // find index
         let index = todos.indexOf(todo);
 
-        todos[index].title = req.body.title
-
-        todos[index].description = req.body.description
-        
-        todos.splice(index, 1);
-        todos.push(todo)
+        todos.splice(index, 1, todo);
 
         console.log(todos)
 

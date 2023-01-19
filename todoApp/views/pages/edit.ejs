@@ -10,6 +10,24 @@
   <body>
     <%- include('../partials/header.ejs') %>
     <h3>Edit</h3>
+    <form style="width: 100%" action="/" method="POST">
+      <div class="form-control">
+        <label for="title">Title</label>
+        <input type="text" name="title" />
+      </div>
+
+      <div class="form-control">
+        <label for="description">Description</label>
+        <textarea name="description" cols="30" rows="10"> </textarea>
+      </div>
+
+      <div class="form-control completed">
+        <label for="completed">Completed</label>
+        <input type="checkbox" name="completed" />
+      </div>
+
+      <button type="submit">Create</button>
+    </form>
     <h3><%= title %></h3>
     <ul>
       <li>
