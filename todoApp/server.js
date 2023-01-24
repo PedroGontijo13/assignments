@@ -14,15 +14,7 @@ app.use(express.static("public"));
 
 app.use(header);
 
-app.get("/health", (req,res) => {
-   res.json({
-        status: "UP",
-        author: "kubilaycakmak"
-   }) 
-});
-
 app.use("/", todoRoutes);
-
 
 app.listen(5001, () => {
     console.log("Server is running on port 5001");

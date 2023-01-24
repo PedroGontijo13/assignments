@@ -25,7 +25,7 @@
           <form action="/<%= todos[index].id %>" method="POST">
             <button type="submit">Delete</button>
           </form>
-          <form action="/edit">
+          <form action="/edit/<%= todos[index].id %>" method="GET">
             <button type="submit">Edit</button>
           </form>
         </div>

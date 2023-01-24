@@ -10,7 +10,7 @@
   <body>
     <%- include('../partials/header.ejs') %>
     <h3>Edit</h3>
-    <form style="width: 100%" action="/" method="POST">
+    <form style="width: 100%" action="/edit/<%= id %>" method="POST">
       <div class="form-control">
         <label for="title">Title</label>
         <input type="text" name="title" />
@@ -28,23 +28,26 @@
 
       <button type="submit">Create</button>
     </form>
-    <h3><%= title %></h3>
+    <% for(var i=0; i< todos.length; i++) { %>
     <ul>
       <li>
         <div class="todo-card">
-          <input type="checkbox" name="completed" <%= todos.completed ?
+          <input type="checkbox" name="completed" <%= todos[i].completed ?
           "checked" : "" %> />
-          <label for=""><%= todos.title %></label>
+          <label for=""><%= todos[i].title %></label>
           <div class="todo-description">
-            <p><%= todos.description %></p>
+            <p><%= todos[i].description %></p>
           </div>
-          <form action="/<%= todos.id %>" method="POST">
+          <form action="/<%= todos[i].id %>" method="POST">
             <button type="submit">Delete</button>
+          </form>
+          <form action="/edit/<%= todos[i].id %>" method="GET">
+            <button type="submit">Edit</button>
           </form>
         </div>
       </li>
     </ul>
 
-    <%- include("../partials/footer.ejs") %>
+    <% } %> <%- include("../partials/footer.ejs") %>
   </body>
 </html>
